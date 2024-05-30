@@ -9,8 +9,8 @@ cluster-configs:
     name: root-ingress
     namespace: egov
     cert-issuer: "letsencrypt-staging"
-    appRoot: digit-ui
-    serviceName: digit-ui
+    appRoot: citizen
+    serviceName: citizen
     servicePort: 80
  
   nginx-errors:
