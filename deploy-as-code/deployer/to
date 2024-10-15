@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  token: QUFFQUFXVnNZWE4wYVdNdmEybGlZVzVoTDNKbGJHVmhjMlV0Ym1GdFpTMXJhV0poYm1FNldVaG9PVTgyZG10VVFTMTFZakpDYzNKUFdqTnJadw==
+kind: Secret
+metadata:
+  name: release-name-kibana-es-token
+  namespace: es-cluster
+type: Opaque
