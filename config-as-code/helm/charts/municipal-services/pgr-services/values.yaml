@@ -92,6 +92,11 @@ env: |
       configMapKeyRef:
         name: egov-service-host
         key: egov-user
+  - name: MDMS_V2_HOST
+    valueFrom:
+      configMapKeyRef:
+        key: mdms-v2
+        name: egov-service-host      
   - name: NOTIFICATION_SMS_ENABLED
     value: {{ index .Values "notification-sms-enabled" | quote }}
   - name: NOTIFICATION_EMAIL_ENABLED
