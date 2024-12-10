@@ -1,3 +1,7 @@
+# ******* NOTE START ******* 
+# All of the credentials and secrets mentioned in this file are dummy and donot belong to any environment, product or project. The implementation partners are required to update these dummy credentials with the actual credentials of their environment, product or project.
+# ******* NOTE END *******
+
 #
 # Variables Configuration
 #
