@@ -5,7 +5,7 @@
 
 variable "cluster_name" {
   description = "Name of the Kubernetes cluster"
-  default = <cluster_name> #REPLACE
+  default = "fsm" #REPLACE
 }
 
 variable "vpc_cidr_block" {
@@ -47,25 +47,25 @@ variable "number_of_worker_nodes" {
 
 variable "ssh_key_name" {
   description = "ssh key name, not required if your using spot instance types"
-  default = <ssh_key_name> #REPLACE
+  default = "fsm-ssh-key" #REPLACE
 }
 
 
 variable "db_name" {
   description = "RDS DB name. Make sure there are no hyphens or other special characters in the DB name. Else, DB creation will fail"
-  default = <db_name> #REPLACE
+  default = "fsm" #REPLACE
 }
 
 variable "db_username" {
   description = "RDS database user name"
-  default = <db_username> #REPLACE
+  default = "fsm" #REPLACE
 }
 
 #DO NOT fill in here. This will be asked at runtime
 variable "db_password" {}
 
 variable "public_key" {
-  default = <public_ssh_key>
+  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCqC9KQJ774yo3G1/AbSy64zlPb+LbS0mKgSeFTcIQZyIykDVAqsJH2kA+1WNyvN0bluhClYzJbqLrl4wtsDo8EvNYJdFZX/buzbif74V0mvspREy1h5u4v+OyHyLiErDzpMctzOlFPyb3mMMaVvHlpSBp4f0EUWzufFW6PorbC7scxOorZbsMkuYLfuiKqdAFO+Pyc83127ipNmlfJk8+SSBGVgv6zFp9ml+DR6le1RyXvfpa9CFXmVjLNzB8kx8JAA9FAc1HNqIov0liEAKoId5+87OFkcqhkYWiopOuXzh1ekfHVy1Cdmp7FWd9c8Yu14dvsSb3YPK+1XCX2NM12uyM6d8ke28RiheuhhTFLybbKQ77N3wO6sB55dx3qDKvZEoYEY9v4zb5LV2eGcBOFOZhCkut6XS8VPWim96BWSyLFEw5tQBJeJimrDmusvdC20mEHt+I8ouereebK9AUOXusAT97YNidaTxjLLX/Kl4G9dd5HK2iuDTSqgb8JbsvKgn7gAYo+0GB6YXHxlPlJmbwpJsaWluf3YjJ7NVH22hxLXmeHtZvWlphybOmYwaP7jHOijB8V1BKQedS55SPW8Kdv9GUToW5IBq3y56aUsjk61Y2WQ09ywjOu/Irh4EhAoPz09aHPko3Vz5bIn6r9W0rxAHC0oSwpiXhhkLOaBw== atul@niua.org"
   description = "ssh key"
 }
 
