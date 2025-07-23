@@ -267,13 +267,13 @@ egov-mdms-service:
   replicas: 1
   images:
     - egovio/egov-mdms-service
-  mdms-path: "/work-dir/upyog-mdms-data/data"
+  mdms-path: "/work-dir/upyog-mdms-data-fsm/data"
   initContainers:
     gitSync:
-      repo: "git@github.com:upyog/upyog-mdms-data"   ##### Change repo url with Your fork Repo url
+      repo: "git@github.com:upyog/upyog-mdms-data-fsm"   ##### Change repo url with Your fork Repo url
       branch: "2.1"                                        ##### Change repo branch with Your fork Repo branch
   mdms-folder: "upyog-mdms-data"
-  masters-config-url: "file:///work-dir/upyog-mdms-data/master-config.json"
+  masters-config-url: "file:///work-dir/upyog-mdms-data-fsm/master-config.json"
   java-args: -Dspring.profiles.active=monitoring
 
 egov-indexer:
