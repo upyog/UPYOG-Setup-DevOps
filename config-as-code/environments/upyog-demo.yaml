@@ -271,7 +271,7 @@ egov-mdms-service:
   initContainers:
     gitSync:
       repo: "git@github.com:sbm-fsm/upyog-mdms-data-fsm"   ##### Change repo url with Your fork Repo url
-      branch: "2.1"                                        ##### Change repo branch with Your fork Repo branch
+      branch: "master"                                        ##### Change repo branch with Your fork Repo branch
   mdms-folder: "upyog-mdms-data-fsm"
   masters-config-url: "file:///work-dir/upyog-mdms-data-fsm/master-config.json"
   java-args: -Dspring.profiles.active=monitoring
@@ -282,7 +282,7 @@ egov-indexer:
   initContainers:
     gitSync:
       repo: "git@github.com:upyog/upyog-configs-fsm"        ##### Change repo url with Your fork Repo url
-      branch: "2.1"                                      ##### Change repo branch with Your fork Repo branch
+      branch: "master"                                      ##### Change repo branch with Your fork Repo branch
   egov-indexer-yaml-repo-path: "file:///work-dir/upyog-configs/configs/egov-indexer/billingservices-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/collection-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/egov-telemetry-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/egov-uploader-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/error-queue.yml,file:///work-dir/upyog-configs/configs/egov-indexer/finance-rolloutadotpion-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/payment-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/rainmaker-pgr-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/rainmaker-pt-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/rainmaker-tl-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/chatbot-telemetry.yaml"
 
 egov-persister:
@@ -293,7 +293,7 @@ egov-persister:
   initContainers:
     gitSync:
       repo: "git@github.com:upyog/upyog-configs-fsm"      ##### Change repo url with Your fork Repo url
-      branch: "2.1"                                    ##### Change repo branch with Your fork Repo branch
+      branch: "master"                                    ##### Change repo branch with Your fork Repo branch
 
 pgr-services:
   memory_limits: 512Mi
@@ -309,7 +309,7 @@ egov-searcher:
   initContainers:
     gitSync:
       repo: "git@github.com:upyog/upyog-configs-fsm"     ##### Change repo url with Your fork Repo url
-      branch: "2.1"                                   ##### Change repo branch with Your fork Repo branch
+      branch: "master"                                   ##### Change repo branch with Your fork Repo branch
 
 dashboard-analytics:
   config-schema-paths: "file:///work-dir/configs/egov-dss-dashboards/dashboard-analytics/*.json"
@@ -344,14 +344,14 @@ report:
   initContainers:
     gitSync:
       repo: "git@github.com:egovernments/configs"     ##### Change repo url with Your fork Repo url
-      branch: "UAT"                                   ##### Change repo branch with Your fork Repo branch
+      branch: "master"                                   ##### Change repo branch with Your fork Repo branch
   report-locationsfile-path: "file:///work-dir/configs/reports/reportFileLocationsv1.txt"
 
 pdf-service:
   initContainers:
     gitSync:
       repo: "git@github.com:egovernments/configs"     ##### Change repo url with Your fork Repo url
-      branch: "UAT"                                   ##### Change repo branch with Your fork Repo branch
+      branch: "master"                                   ##### Change repo branch with Your fork Repo branch
   data-config-urls: "file:///work-dir/configs/pdf-service/data-config/tradelicense-receipt.json,file:///work-dir/configs/pdf-service/data-config/property-receipt.json,file:///work-dir/configs/pdf-service/data-config/property-bill.json,file:///work-dir/configs/pdf-service/data-config/tradelicense-bill.json,file:///work-dir/configs/pdf-service/data-config/firenoc-receipt.json,file:///work-dir/configs/pdf-service/data-config/pt-receipt.json,file:///work-dir/configs/pdf-service/data-config/tl-receipt.json,file:///work-dir/configs/pdf-service/data-config/consolidatedbill.json,file:///work-dir/configs/pdf-service/data-config/consolidatedreceipt.json,file:///work-dir/configs/pdf-service/data-config/tlapplication.json,file:///work-dir/configs/pdf-service/data-config/passvehicle-certificate.json,file:///work-dir/configs/pdf-service/data-config/ws-consolidatedacknowlegment.json,file:///work-dir/configs/pdf-service/data-config/ws-consolidatedsewerageconnection.json,file:///work-dir/configs/pdf-service/data-config/buildingpermit.json,file:///work-dir/configs/pdf-service/data-config/ptmutationcertificate.json,file:///work-dir/configs/pdf-service/data-config/tlrenewalcertificate.json,file:///work-dir/configs/pdf-service/data-config/bpa-revocation.json,file:///work-dir/configs/pdf-service/data-config/buildingpermit-low.json,file:///work-dir/configs/pdf-service/data-config/misc-receipt.json,file:///work-dir/configs/pdf-service/data-config/ws-applicationwater.json,file:///work-dir/configs/pdf-service/data-config/ws-sanctionletter.json,file:///work-dir/configs/pdf-service/data-config/ws-estimationnotice.json,file:///work-dir/configs/pdf-service/data-config/ws-applicationsewerage.json,file:///work-dir/configs/pdf-service/data-config/tlcertificate.json"
   format-config-urls: "file:///work-dir/configs/pdf-service/format-config/tradelicense-receipt.json,file:///work-dir/configs/pdf-service/format-config/property-receipt.json,file:///work-dir/configs/pdf-service/format-config/property-bill.json,file:///work-dir/configs/pdf-service/format-config/tradelicense-bill.json,file:///work-dir/configs/pdf-service/format-config/firenoc-receipt.json,file:///work-dir/configs/pdf-service/format-config/pt-receipt.json,file:///work-dir/configs/pdf-service/format-config/tl-receipt.json,file:///work-dir/configs/pdf-service/format-config/consolidatedbill.json,file:///work-dir/configs/pdf-service/format-config/consolidatedreceipt.json,file:///work-dir/configs/pdf-service/format-config/tlapplication.json,file:///work-dir/configs/pdf-service/format-config/passvehicle-certificate.json,file:///work-dir/configs/pdf-service/format-config/ws-consolidatedacknowlegment.json,file:///work-dir/configs/pdf-service/format-config/ws-consolidatedsewerageconnection.json,file:///work-dir/configs/pdf-service/format-config/buildingpermit.json,file:///work-dir/configs/pdf-service/format-config/ptmutationcertificate.json,file:///work-dir/configs/pdf-service/format-config/tlrenewalcertificate.json,file:///work-dir/configs/pdf-service/format-config/bpa-revocation.json,file:///work-dir/configs/pdf-service/format-config/buildingpermit-low.json,file:///work-dir/configs/pdf-service/format-config/misc-receipt.json,file:///work-dir/configs/pdf-service/format-config/ws-applicationwater.json,file:///work-dir/configs/pdf-service/format-config/ws-sanctionletter.json,file:///work-dir/configs/pdf-service/format-config/ws-estimationnotice.json,file:///work-dir/configs/pdf-service/format-config/ws-applicationsewerage.json,file:///work-dir/configs/pdf-service/format-config/tlcertificate.json"
 
