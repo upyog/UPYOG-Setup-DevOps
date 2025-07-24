@@ -1,5 +1,5 @@
 global:
-   domain: <domain_name> ## Add your Domain Name "Eg: site.mydomain.com" Do not use the dummy domain
+   domain: fsm.niua.in ## Add your Domain Name "Eg: site.mydomain.com" Do not use the dummy domain
    setup: fullsetup
 
 cluster-configs:
@@ -13,11 +13,11 @@ cluster-configs:
         egov-config:
             namespace: [ egov, monitoring ]
             data:
-                db-host: <db_host_name> ## Add db-host name eg: upyog-demo.database.azure.com
-                db-name: <db_name> ## Add db-name
-                db-url: jdbc:postgresql://<db_host_name>/<db_name> ## example: jdbc:postgresql://upyog-demo.postgres.database.azure.com:5432/egov_demo
-                domain: <domain_name> ## Add your Domain Name    
-                egov-services-fqdn-name: https://<domain_name>/ ## Add your Domain Name
+                db-host: fsm-db.crkwqgogsdo5.ap-south-1.rds.amazonaws.com:5432 ## Add db-host name eg: upyog-demo.database.azure.com
+                db-name: fsm ## Add db-name
+                db-url: jdbc:postgresql://fsm-db.crkwqgogsdo5.ap-south-1.rds.amazonaws.com:5432/fsm ## example: jdbc:postgresql://upyog-demo.postgres.database.azure.com:5432/egov_demo
+                domain: fsm.niua.in ## Add your Domain Name    
+                egov-services-fqdn-name: https://fsm.niua.in/ ## Add your Domain Name
                 
                 egov-state-level-tenant-id: "pg" 
                 s3-assets-bucket: "(pg-egov-assets|egov-playground-assets)"
@@ -281,8 +281,8 @@ egov-indexer:
   memory_limits: "768Mi"
   initContainers:
     gitSync:
-      repo: "git@github.com:upyog/upyog-configs-fsm"        ##### Change repo url with Your fork Repo url
-      branch: "master"                                      ##### Change repo branch with Your fork Repo branch
+      repo: "git@github.com:upyog/upyog-configs"        ##### Change repo url with Your fork Repo url
+      branch: "2.1"                                      ##### Change repo branch with Your fork Repo branch
   egov-indexer-yaml-repo-path: "file:///work-dir/upyog-configs/configs/egov-indexer/billingservices-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/collection-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/egov-telemetry-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/egov-uploader-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/error-queue.yml,file:///work-dir/upyog-configs/configs/egov-indexer/finance-rolloutadotpion-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/payment-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/rainmaker-pgr-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/rainmaker-pt-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/rainmaker-tl-indexer.yml,file:///work-dir/upyog-configs/configs/egov-indexer/chatbot-telemetry.yaml"
 
 egov-persister:
@@ -292,8 +292,8 @@ egov-persister:
   persist-yml-path: "file:///work-dir/upyog-configs/configs/egov-persister/pgr-services-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/pt-mutation-calculator-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/apportion-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/billing-services-persist.yml,file:///work-dir/upyog-configs/configs/egov-persister/egf-bill.yaml,file:///work-dir/upyog-configs/configs/egov-persister/egov-user-event-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/egov-workflow-v2-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/firenoc_persiter.yaml,file:///work-dir/upyog-configs/configs/egov-persister/hrms-employee-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/pdf-generator.yml,file:///work-dir/upyog-configs/configs/egov-persister/pg-service-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/pgr.v3.yml,file:///work-dir/upyog-configs/configs/egov-persister/property-services.yml,file:///work-dir/upyog-configs/configs/egov-persister/pt-calculator-v2-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/pt-drafts.yml,file:///work-dir/upyog-configs/configs/egov-persister/pt-persist.yml,file:///work-dir/upyog-configs/configs/egov-persister/tl-billing-slab-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/tl-calculation-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/uploader-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/collection-migration-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/property-services-registry.yml,file:///work-dir/upyog-configs/configs/egov-persister/tradelicense.yml,file:///work-dir/upyog-configs/configs/egov-persister/sewerage-persist.yml,file:///work-dir/upyog-configs/configs/egov-persister/water-persist.yml,file:///work-dir/upyog-configs/configs/egov-persister/water-meter.yml,file:///work-dir/upyog-configs/configs/egov-persister/bpa-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/assessment-persister.yml,file:///work-dir/upyog-configs/configs/egov-persister/chatbot.yml"
   initContainers:
     gitSync:
-      repo: "git@github.com:upyog/upyog-configs-fsm"      ##### Change repo url with Your fork Repo url
-      branch: "master"                                    ##### Change repo branch with Your fork Repo branch
+      repo: "git@github.com:upyog/upyog-configs"      ##### Change repo url with Your fork Repo url
+      branch: "2.1"                                    ##### Change repo branch with Your fork Repo branch
 
 pgr-services:
   memory_limits: 512Mi
@@ -308,8 +308,8 @@ egov-searcher:
   search-yaml-path: "file:///work-dir/upyog-configs/configs/egov-searcher/rainmaker-pgr-v2.yml,file:///work-dir/upyog-configs/configs/egov-searcher/weekly-impact-emailer-searcher.yml,file:///work-dir/upyog-configs/configs/egov-searcher/PTDemandBasedSearcher.yml,file:///work-dir/upyog-configs/configs/egov-searcher/bill-genie.yml,file:///work-dir/upyog-configs/configs/egov-searcher/rainmaker-tl.yml,file:///work-dir/upyog-configs/configs/egov-searcher/localitySearcher.yml"
   initContainers:
     gitSync:
-      repo: "git@github.com:upyog/upyog-configs-fsm"     ##### Change repo url with Your fork Repo url
-      branch: "master"                                   ##### Change repo branch with Your fork Repo branch
+      repo: "git@github.com:upyog/upyog-configs"     ##### Change repo url with Your fork Repo url
+      branch: "2.1"                                   ##### Change repo branch with Your fork Repo branch
 
 dashboard-analytics:
   config-schema-paths: "file:///work-dir/configs/egov-dss-dashboards/dashboard-analytics/*.json"
@@ -344,14 +344,14 @@ report:
   initContainers:
     gitSync:
       repo: "git@github.com:egovernments/configs"     ##### Change repo url with Your fork Repo url
-      branch: "master"                                   ##### Change repo branch with Your fork Repo branch
+      branch: "UAT"                                   ##### Change repo branch with Your fork Repo branch
   report-locationsfile-path: "file:///work-dir/configs/reports/reportFileLocationsv1.txt"
 
 pdf-service:
   initContainers:
     gitSync:
       repo: "git@github.com:egovernments/configs"     ##### Change repo url with Your fork Repo url
-      branch: "master"                                   ##### Change repo branch with Your fork Repo branch
+      branch: "UAT"                                   ##### Change repo branch with Your fork Repo branch
   data-config-urls: "file:///work-dir/configs/pdf-service/data-config/tradelicense-receipt.json,file:///work-dir/configs/pdf-service/data-config/property-receipt.json,file:///work-dir/configs/pdf-service/data-config/property-bill.json,file:///work-dir/configs/pdf-service/data-config/tradelicense-bill.json,file:///work-dir/configs/pdf-service/data-config/firenoc-receipt.json,file:///work-dir/configs/pdf-service/data-config/pt-receipt.json,file:///work-dir/configs/pdf-service/data-config/tl-receipt.json,file:///work-dir/configs/pdf-service/data-config/consolidatedbill.json,file:///work-dir/configs/pdf-service/data-config/consolidatedreceipt.json,file:///work-dir/configs/pdf-service/data-config/tlapplication.json,file:///work-dir/configs/pdf-service/data-config/passvehicle-certificate.json,file:///work-dir/configs/pdf-service/data-config/ws-consolidatedacknowlegment.json,file:///work-dir/configs/pdf-service/data-config/ws-consolidatedsewerageconnection.json,file:///work-dir/configs/pdf-service/data-config/buildingpermit.json,file:///work-dir/configs/pdf-service/data-config/ptmutationcertificate.json,file:///work-dir/configs/pdf-service/data-config/tlrenewalcertificate.json,file:///work-dir/configs/pdf-service/data-config/bpa-revocation.json,file:///work-dir/configs/pdf-service/data-config/buildingpermit-low.json,file:///work-dir/configs/pdf-service/data-config/misc-receipt.json,file:///work-dir/configs/pdf-service/data-config/ws-applicationwater.json,file:///work-dir/configs/pdf-service/data-config/ws-sanctionletter.json,file:///work-dir/configs/pdf-service/data-config/ws-estimationnotice.json,file:///work-dir/configs/pdf-service/data-config/ws-applicationsewerage.json,file:///work-dir/configs/pdf-service/data-config/tlcertificate.json"
   format-config-urls: "file:///work-dir/configs/pdf-service/format-config/tradelicense-receipt.json,file:///work-dir/configs/pdf-service/format-config/property-receipt.json,file:///work-dir/configs/pdf-service/format-config/property-bill.json,file:///work-dir/configs/pdf-service/format-config/tradelicense-bill.json,file:///work-dir/configs/pdf-service/format-config/firenoc-receipt.json,file:///work-dir/configs/pdf-service/format-config/pt-receipt.json,file:///work-dir/configs/pdf-service/format-config/tl-receipt.json,file:///work-dir/configs/pdf-service/format-config/consolidatedbill.json,file:///work-dir/configs/pdf-service/format-config/consolidatedreceipt.json,file:///work-dir/configs/pdf-service/format-config/tlapplication.json,file:///work-dir/configs/pdf-service/format-config/passvehicle-certificate.json,file:///work-dir/configs/pdf-service/format-config/ws-consolidatedacknowlegment.json,file:///work-dir/configs/pdf-service/format-config/ws-consolidatedsewerageconnection.json,file:///work-dir/configs/pdf-service/format-config/buildingpermit.json,file:///work-dir/configs/pdf-service/format-config/ptmutationcertificate.json,file:///work-dir/configs/pdf-service/format-config/tlrenewalcertificate.json,file:///work-dir/configs/pdf-service/format-config/bpa-revocation.json,file:///work-dir/configs/pdf-service/format-config/buildingpermit-low.json,file:///work-dir/configs/pdf-service/format-config/misc-receipt.json,file:///work-dir/configs/pdf-service/format-config/ws-applicationwater.json,file:///work-dir/configs/pdf-service/format-config/ws-sanctionletter.json,file:///work-dir/configs/pdf-service/format-config/ws-estimationnotice.json,file:///work-dir/configs/pdf-service/format-config/ws-applicationsewerage.json,file:///work-dir/configs/pdf-service/format-config/tlcertificate.json"
 
@@ -574,12 +574,12 @@ kafka-v2:
   persistence:
     enabled: true
     aws:
-      - volumeId: "<kafka-v2_volume_id_1>" ## REPLACE: add volume id
-        zone: <zone>     ## REPLACE: add respective zone. 
-      - volumeId: "<kafka-v2_volume_id_2>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
-      - volumeId: "<kafka-v2_volume_id_3>"  ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
+      - volumeId: "vol-04b24a441fb33cbea" ## REPLACE: add volume id
+        zone: ap-south-1b     ## REPLACE: add respective zone. 
+      - volumeId: "vol-03253cb37deb64ab6" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
+      - volumeId: "vol-074b7f6701efac8da"  ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
   zookeeperHosts: "zookeeper-v2.zookeeper-cluster:2181/kafka-v2"
 
   heapOptions: "-Xms704M -Xmx704M"
@@ -609,12 +609,12 @@ zookeeper-v2:
   persistence:
     enabled: true
     aws:
-      - volumeId: "<zookeeper-v2_volume_id_1>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
-      - volumeId: "<zookeeper-v2_volume_id_2>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
-      - volumeId: "<zookeeper-v2_volume_id_3>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
+      - volumeId: "vol-03602628cc7f5c647" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
+      - volumeId: "vol-01bc97439d7924c6a" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
+      - volumeId: "vol-0887d8d68a608a5a0" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
 
   ## Zookeeper JVM Heap Option
   heapOptions: "-Xms256M -Xmx256M"
@@ -634,12 +634,12 @@ elasticsearch-data-v1:
   persistence:
     enabled: true
     aws:
-      - volumeId: "<elasticsearch-data_volume_id_1>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
-      - volumeId: "<elasticsearch-data_volume_id_2>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
-      - volumeId: "<elasticsearch-data_volume_id_3>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
+      - volumeId: "vol-0f13292e9081a6733" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
+      - volumeId: "vol-01f564f0dd26706a9" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
+      - volumeId: "vol-033f61a31d03d5dc8" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
 
   esJavaOpts: "-Xmx1g -Xms1g"
   resources:
@@ -659,12 +659,12 @@ elasticsearch-master-v1:
   persistence:
     enabled: true
     aws:
-      - volumeId: "<elasticsearch-master_volume_id_1>" ## REPLACE: add volume id
-        zone: <zone> ##REPLACE: add zone
-      - volumeId: "<elasticsearch-master_volume_id_2>" ## REPLACE: add volume id
-        zone: <zone> ##REPLACE: add zone
-      - volumeId: "<elasticsearch-master_volume_id_3>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
+      - volumeId: "vol-010f16836b71d91d9" ## REPLACE: add volume id
+        zone: ap-south-1b ##REPLACE: add zone
+      - volumeId: "vol-063bc84b208974702" ## REPLACE: add volume id
+        zone: ap-south-1b ##REPLACE: add zone
+      - volumeId: "vol-0a53863f21b752538" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
  
   esJavaOpts: "-Xmx448m -Xms448m"
   resources:
