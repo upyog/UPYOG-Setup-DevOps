@@ -2,8 +2,7 @@ version: v3.1
 modules:
     - name: backbone
       services:
-        - zookeeper-v2:5.4.1
-        - kafka-v2:5.4.1
+        - bitnami/kafka:3.6.0-debian-11-r0
         - kafka-connect:5.4.1
         - kafka-connect-restart-tasks
         - elasticsearch-data-v1
