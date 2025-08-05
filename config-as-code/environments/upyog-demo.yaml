@@ -1,5 +1,5 @@
 global:
-   domain: <domain_name> ## Add your Domain Name "Eg: site.mydomain.com" Do not use the dummy domain
+   domain: fsm.niua.in ## Add your Domain Name "Eg: site.mydomain.com" Do not use the dummy domain
    setup: fullsetup
 
 cluster-configs:
@@ -13,11 +13,11 @@ cluster-configs:
         egov-config:
             namespace: [ egov, monitoring ]
             data:
-                db-host: <db_host_name> ## Add db-host name eg: upyog-demo.database.azure.com
-                db-name: <db_name> ## Add db-name
-                db-url: jdbc:postgresql://<db_host_name>/<db_name> ## example: jdbc:postgresql://upyog-demo.postgres.database.azure.com:5432/egov_demo
-                domain: <domain_name> ## Add your Domain Name    
-                egov-services-fqdn-name: https://<domain_name>/ ## Add your Domain Name
+                db-host: fsm-db.crkwqgogsdo5.ap-south-1.rds.amazonaws.com:5432 ## Add db-host name eg: upyog-demo.database.azure.com
+                db-name: fsm ## Add db-name
+                db-url: jdbc:postgresql://fsm-db.crkwqgogsdo5.ap-south-1.rds.amazonaws.com:5432/fsm ## example: jdbc:postgresql://upyog-demo.postgres.database.azure.com:5432/egov_demo
+                domain: fsm.niua.in ## Add your Domain Name    
+                egov-services-fqdn-name: https://fsm.niua.in/ ## Add your Domain Name
                 
                 egov-state-level-tenant-id: "pg" 
                 s3-assets-bucket: "(pg-egov-assets|egov-playground-assets)"
@@ -267,13 +267,13 @@ egov-mdms-service:
   replicas: 1
   images:
     - egovio/egov-mdms-service
-  mdms-path: "/work-dir/upyog-mdms-data/data"
+  mdms-path: "/work-dir/upyog-mdms-data-fsm/data"
   initContainers:
     gitSync:
-      repo: "git@github.com:upyog/upyog-mdms-data"   ##### Change repo url with Your fork Repo url
-      branch: "2.1"                                        ##### Change repo branch with Your fork Repo branch
-  mdms-folder: "upyog-mdms-data"
-  masters-config-url: "file:///work-dir/upyog-mdms-data/master-config.json"
+      repo: "https://github.com/sbm-fsm/upyog-mdms-data-fsm"   ##### Change repo url with Your fork Repo url
+      branch: "master"                                        ##### Change repo branch with Your fork Repo branch
+  mdms-folder: "upyog-mdms-data-fsm"
+  masters-config-url: "file:///work-dir/upyog-mdms-data-fsm/master-config.json"
   java-args: -Dspring.profiles.active=monitoring
 
 egov-indexer:
@@ -574,12 +574,12 @@ kafka-v2:
   persistence:
     enabled: true
     aws:
-      - volumeId: "<kafka-v2_volume_id_1>" ## REPLACE: add volume id
-        zone: <zone>     ## REPLACE: add respective zone. 
-      - volumeId: "<kafka-v2_volume_id_2>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
-      - volumeId: "<kafka-v2_volume_id_3>"  ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
+      - volumeId: "vol-04b24a441fb33cbea" ## REPLACE: add volume id
+        zone: ap-south-1b     ## REPLACE: add respective zone. 
+      - volumeId: "vol-03253cb37deb64ab6" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
+      - volumeId: "vol-074b7f6701efac8da"  ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
   zookeeperHosts: "zookeeper-v2.zookeeper-cluster:2181/kafka-v2"
 
   heapOptions: "-Xms704M -Xmx704M"
@@ -609,12 +609,12 @@ zookeeper-v2:
   persistence:
     enabled: true
     aws:
-      - volumeId: "<zookeeper-v2_volume_id_1>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
-      - volumeId: "<zookeeper-v2_volume_id_2>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
-      - volumeId: "<zookeeper-v2_volume_id_3>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
+      - volumeId: "vol-03602628cc7f5c647" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
+      - volumeId: "vol-01bc97439d7924c6a" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
+      - volumeId: "vol-0887d8d68a608a5a0" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
 
   ## Zookeeper JVM Heap Option
   heapOptions: "-Xms256M -Xmx256M"
@@ -634,12 +634,12 @@ elasticsearch-data-v1:
   persistence:
     enabled: true
     aws:
-      - volumeId: "<elasticsearch-data_volume_id_1>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
-      - volumeId: "<elasticsearch-data_volume_id_2>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
-      - volumeId: "<elasticsearch-data_volume_id_3>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
+      - volumeId: "vol-0f13292e9081a6733" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
+      - volumeId: "vol-01f564f0dd26706a9" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
+      - volumeId: "vol-033f61a31d03d5dc8" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
 
   esJavaOpts: "-Xmx1g -Xms1g"
   resources:
@@ -659,12 +659,12 @@ elasticsearch-master-v1:
   persistence:
     enabled: true
     aws:
-      - volumeId: "<elasticsearch-master_volume_id_1>" ## REPLACE: add volume id
-        zone: <zone> ##REPLACE: add zone
-      - volumeId: "<elasticsearch-master_volume_id_2>" ## REPLACE: add volume id
-        zone: <zone> ##REPLACE: add zone
-      - volumeId: "<elasticsearch-master_volume_id_3>" ## REPLACE: add volume id
-        zone: <zone> ## REPLACE: add zone
+      - volumeId: "vol-010f16836b71d91d9" ## REPLACE: add volume id
+        zone: ap-south-1b ##REPLACE: add zone
+      - volumeId: "vol-063bc84b208974702" ## REPLACE: add volume id
+        zone: ap-south-1b ##REPLACE: add zone
+      - volumeId: "vol-0a53863f21b752538" ## REPLACE: add volume id
+        zone: ap-south-1b ## REPLACE: add zone
  
   esJavaOpts: "-Xmx448m -Xms448m"
   resources:
