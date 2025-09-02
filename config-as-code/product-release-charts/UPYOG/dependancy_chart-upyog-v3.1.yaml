@@ -2,7 +2,7 @@ version: v3.1
 modules:
     - name: backbone
       services:
-        - bitnami/kafka:3.6.0-debian-11-r0
+        - bitnamilegacy/kafka:3.6.0-debian-11-r0
         - kafka-connect:5.4.1
         - kafka-connect-restart-tasks
         - elasticsearch-data-v1
@@ -92,3 +92,4 @@ modules:
         - upyogio/tl-calculator:v1.1.5-64da31c86e-6
         - upyogio/tl-services:v1.1.9-462c24adb1-42   
         - upyogio/zuul:v1.3.2-3f038e780d-16
+
