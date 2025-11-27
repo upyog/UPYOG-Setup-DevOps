@@ -91,7 +91,7 @@ resource "aws_route_table_association" "public" {
 }
 
 resource "aws_eip" "eip" {
-  vpc      = true
+ # vpc      = true
   depends_on = ["aws_internet_gateway.internet_gateway"]
 
     tags = "${
@@ -154,4 +154,5 @@ resource "aws_security_group" "rds_db_sg" {
       "Name" = "db-${var.cluster_name}"
     })
   }"
+
 }
