@@ -9,7 +9,7 @@ namespace: works
 ingress:
   namespace: egov
   enabled: true
-  zuul: true
+  gateway: true
   context: "muster-roll"
 
 # Init Containers Configs

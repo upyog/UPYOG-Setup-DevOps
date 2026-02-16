@@ -7,7 +7,7 @@ labels:
 # Ingress Configs
 ingress:
   enabled: true
-  zuul: true
+  gateway: true
   context: "fsm-calculator"
 
 # Init Containers Configs

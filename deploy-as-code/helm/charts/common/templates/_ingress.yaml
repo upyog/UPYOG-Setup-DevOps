@@ -34,7 +34,7 @@ spec:
     http:
       paths:
       - backend:
-{{- if .Values.ingress.zuul }}          
+{{- if .Values.ingress.gateway }}          
           service:
             name: gateway
             port:

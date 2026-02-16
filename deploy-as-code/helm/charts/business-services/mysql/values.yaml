@@ -100,7 +100,7 @@ extraVolumes: |
 # Ingress Configs
 ingress:
   enabled: false
-  zuul: false
+  gateway: false
   waf: 
     enabled: false
 

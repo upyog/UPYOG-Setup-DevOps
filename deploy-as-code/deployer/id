@@ -1,0 +1,14 @@
+apiVersion: v1
+data:
+  kraft-cluster-id: eFdpZG5XMjZTaUlicFNkNXhBWExlQQ==
+kind: Secret
+metadata:
+  labels:
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: kafka
+    app.kubernetes.io/version: 3.6.0
+    helm.sh/chart: kafka-26.2.0
+  name: release-name-kafka-kraft-cluster-id
+  namespace: kafka-kraft
+type: Opaque

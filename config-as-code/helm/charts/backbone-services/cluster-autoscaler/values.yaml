@@ -208,7 +208,7 @@ expanderPriorities: {}
 
 ingress:
   enabled: false
-  zuul: false
+  gateway: false
 
 service:
   additionalAnnotations: {}  

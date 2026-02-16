@@ -469,7 +469,7 @@ master:
                 keepDependencies(false)
                 parameters {
                   stringParam("Images", "", """1. Either Single Image or Comma Separated Images eg: egov-user:master-v1.15-as12345, egov-mdms-service:1-branch-v1.16-asdd123 
-              2. To restart service(s) enter the service name eg: egov-user, zuul""")
+              2. To restart service(s) enter the service name eg: egov-user, gateway""")
                   booleanParam("Cluster_Configs", false, "Whenever you made changes to the deployment conifg ensure the cluster_config check is checked to pick the latest configs from the deployment")
                 }
                 definition {

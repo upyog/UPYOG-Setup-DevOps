@@ -6,7 +6,7 @@ labels:
 # Ingress Configs
 ingress:
   enabled: true
-  zuul: false
+  gateway: false
   context: "covid-chatbot"
   ip-whitelist: "0.0.0.0/0"
   additionalAnnotations: | 
@@ -72,7 +72,7 @@ env: |
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: zuul
+        key: gateway
   - name: ROOT_TENANTID
     valueFrom:
       configMapKeyRef:

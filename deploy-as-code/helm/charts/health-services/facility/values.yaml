@@ -9,7 +9,7 @@ namespace: health
 ingress:
   namespace: egov
   enabled: true
-  zuul: true
+  gateway: true
   context: "facility"
 
 # Init Containers Configs

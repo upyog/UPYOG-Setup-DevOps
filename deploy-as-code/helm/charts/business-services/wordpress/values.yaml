@@ -108,7 +108,7 @@ extraVolumes: |
 # Ingress Configs
 ingress:
   enabled: true
-  zuul: false
+  gateway: false
   waf: 
     enabled: false
   hostName: bihar-portal-beta.egovernments.org  

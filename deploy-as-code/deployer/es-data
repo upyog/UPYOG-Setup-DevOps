@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: disk.csi.azure.com
+    volume.kubernetes.io/provisioner-deletion-secret-name: ""
+    volume.kubernetes.io/provisioner-deletion-secret-namespace: ""
+  creationTimestamp: "2025-07-16T04:26:30Z"
+  name: es-storage-elasticsearch-data-0
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 25Gi
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: es-storage-elasticsearch-data-0
+    namespace: es-cluster
+  csi:
+    driver: disk.csi.azure.com
+    volumeAttributes:
+      csi.storage.k8s.io/pv/name: es-storage-elasticsearch-data-0
+      csi.storage.k8s.io/pvc/name: es-storage-elasticsearch-data-0
+      csi.storage.k8s.io/pvc/namespace: es-cluster
+      requestedsizegib: "25"
+      skuname: StandardSSD_ZRS
+      storage.kubernetes.io/csiProvisionerIdentity: 1752170411089-4238-disk.csi.azure.com
+    volumeHandle: /subscriptions/9c1cee54-0e7b-4cd3-911f-db23e1df9912/resourceGroups/Gov-Nov-RG/providers/Microsoft.Compute/disks/Nashikelasticsearch-data-disk1 
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.disk.csi.azure.com/zone
+          operator: In
+          values:
+          - centralindia-1
+      - matchExpressions:
+        - key: topology.disk.csi.azure.com/zone
+          operator: In
+          values:
+          - centralindia-2
+      - matchExpressions:
+        - key: topology.disk.csi.azure.com/zone
+          operator: In
+          values:
+          - centralindia-3
+      - matchExpressions:
+        - key: topology.disk.csi.azure.com/zone
+          operator: In
+          values:
+          - ""
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: default
+  volumeMode: Filesystem
+

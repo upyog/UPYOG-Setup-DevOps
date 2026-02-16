@@ -113,7 +113,7 @@ env: |
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: zuul
+        key: gateway
   - name: EGOV_URLSHORTNER_HOST
     valueFrom:
       configMapKeyRef:
@@ -123,22 +123,22 @@ env: |
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: zuul
+        key: gateway
   - name: LOCALIZATION_SERVICE_HOST
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: zuul
+        key: gateway
   - name: FILESTORE_SERVICE_HOST
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: zuul
+        key: gateway
   - name: PGR_SERVICE_HOST
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: zuul
+        key: gateway
   - name: SPRING_FLYWAY_ENABLED
     value: "false"
   - name: SERVER_SERVLET_CONTEXT_PATH

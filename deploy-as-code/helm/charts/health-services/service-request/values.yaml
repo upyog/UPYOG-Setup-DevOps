@@ -8,7 +8,7 @@ namespace: egov
 ingress:
   namespace: egov
   enabled: true
-  zuul: true
+  gateway: true
   context: "service-request"
 
 # Init Containers Configs

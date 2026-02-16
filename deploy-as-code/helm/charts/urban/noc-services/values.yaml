@@ -9,7 +9,7 @@ namespace: urban
 ingress:
   namespace: egov
   enabled: true
-  zuul: true
+  gateway: true
   context: "noc-services"
 
 # Init Containers Configs

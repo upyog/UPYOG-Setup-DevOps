@@ -9,7 +9,7 @@ namespace: ifix
 ingress:
   namespace: egov
   enabled: true
-  zuul: true
+  gateway: true
   context: "program-service"
 
 # Init Containers Configs

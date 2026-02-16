@@ -9,7 +9,7 @@ namespace: works
 ingress:
   namespace: egov
   enabled: true
-  zuul: true
+  gateway: true
   context: "works-inbox-service"
 
 # Container Configs

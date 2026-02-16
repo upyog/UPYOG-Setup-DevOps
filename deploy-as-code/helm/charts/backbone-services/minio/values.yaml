@@ -327,7 +327,7 @@ ingress:
   enabled: true
   context: "minio"
   servicePort: 9000
-  zuul: false
+  gateway: false
   waf: 
     enabled: false
   additionalAnnotations: |

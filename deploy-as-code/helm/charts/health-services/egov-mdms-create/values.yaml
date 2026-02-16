@@ -8,7 +8,7 @@ namespace: health
 # Ingress Configs
 ingress:
   enabled: true
-  zuul: true
+  gateway: true
   context: "egov-mdms-create"
   namespace: egov
 

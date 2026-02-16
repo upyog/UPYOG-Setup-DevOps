@@ -9,7 +9,7 @@ namespace: egov
 ingress:
   namespace: egov
   enabled: true
-  zuul: true
+  gateway: true
   context: "individual"
 
 # Init Containers Configs

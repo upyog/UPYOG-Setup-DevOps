@@ -6,7 +6,7 @@ labels:
 # Ingress Configs
 ingress:
   enabled: true
-  zuul: true
+  gateway: true
   context: "xstate-chatbot"
   ip-whitelist: "0.0.0.0/0"
   additionalAnnotations: | 
@@ -80,7 +80,7 @@ env: |
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: zuul
+        key: gateway
   - name: URL_SHORTNER_HOST
     valueFrom:
       configMapKeyRef:
@@ -90,27 +90,27 @@ env: |
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: zuul
+        key: gateway
   - name: LOCALIZATION_SERVICE_HOST
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: zuul
+        key: gateway
   - name: EGOV_FILESTORE_SERVICE_HOST
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: zuul
+        key: gateway
   - name: BILL_SERVICE_HOST
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: zuul
+        key: gateway
   - name: COLLECTION_SERVICE_HOST
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: zuul      
+        key: gateway      
   - name: ROOT_TENANTID
     valueFrom:
       configMapKeyRef:

@@ -900,7 +900,7 @@ func DeployConfig(Config map[string]interface{}, kvids []string, zvids []string,
 				}
 			}
 		}
-		if i == "zuul" {
+		if i == "gateway" {
 			NestedMap := data[i].(map[string]interface{})
 			for j := range NestedMap {
 				if j == "replicas" {
@@ -1210,7 +1210,7 @@ func DeployConfig(Config map[string]interface{}, kvids []string, zvids []string,
 	ModData["redoc"] = data["redoc"]
 	ModData["nginx-ingress"] = data["nginx-ingress"]
 	ModData["cert-manager"] = data["cert-manager"]
-	ModData["zuul"] = data["zuul"]
+	ModData["gateway"] = data["gateway"]
 	ModData["collection-services"] = data["collection-services"]
 	ModData["collection-receipt-voucher-consumer"] = data["collection-receipt-voucher-consumer"]
 	ModData["finance-collections-voucher-consumer"] = data["finance-collections-voucher-consumer"]

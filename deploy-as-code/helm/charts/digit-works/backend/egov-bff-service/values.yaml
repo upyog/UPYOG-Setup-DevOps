@@ -5,7 +5,7 @@ namespace: works
 ingress:
   namespace: egov
   enabled: true
-  zuul: true
+  gateway: true
   context: egov-bff-service
 image:
   repository: egov-bff-service

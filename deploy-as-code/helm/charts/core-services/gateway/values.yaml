@@ -13,20 +13,20 @@ initContainers:
       image: {{ .Values.global.containerRegistry }}/gateway-kubernetes-discovery:core-2.9-lts-mvn-check-7f4ff55ce3-5
       env: 
       - name: "OUTPUT_FILE_PATH"
-        value: "/etc/zuul/routes.properties" 
+        value: "/etc/gateway/routes.properties" 
       - name: "NAMESPACE"
         value: "egov"         
       volumeMounts:
-      - name: zuul-routes
-        mountPath: /etc/zuul
+      - name: gateway-routes
+        mountPath: /etc/gateway
 
 extraVolumes: |
-  - name: zuul-routes
+  - name: gateway-routes
     emptyDir: {}  
 
 extraVolumeMounts: |
-  - name: zuul-routes
-    mountPath: "/etc/zuul"
+  - name: gateway-routes
+    mountPath: "/etc/gateway"
 
 # Container Configs
 image:
@@ -132,7 +132,7 @@ env: |
   - name: SPRING_DATA_REDIS_DEFAULT_BURSTCAPACITY
     value: "10"
   - name: SPRING_ROUTES_FILEPATH
-    value: "file:/etc/zuul/routes.properties"   
+    value: "file:/etc/gateway/routes.properties"   
   {{- if index .Values "home-isolation-chatbot-router-enabled" }}
   - name: HOME_ISOLATION_CHATBOT_ROUTER_ENABLED
     value: {{ index .Values "home-isolation-chatbot-router-enabled" | quote }}  
