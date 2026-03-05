@@ -5,7 +5,7 @@
 
 variable "cluster_name" {
   description = "Name of the Kubernetes cluster"
-  default = <cluster_name> #REPLACE
+  default = "lts-changes" #REPLACE
 }
 
 variable "vpc_cidr_block" {
@@ -26,7 +26,7 @@ variable "availability_zones" {
 
 variable "kubernetes_version" {
   description = "kubernetes version"
-  default = "1.35"
+  default = "1.32"
 }
 
 variable "instance_type" {
@@ -47,25 +47,25 @@ variable "number_of_worker_nodes" {
 
 variable "ssh_key_name" {
   description = "ssh key name, not required if your using spot instance types"
-  default = <ssh_key_name> #REPLACE
+  default = "lts-chages-ssh-key" #REPLACE
 }
 
 
 variable "db_name" {
   description = "RDS DB name. Make sure there are no hyphens or other special characters in the DB name. Else, DB creation will fail"
-  default = <db_name> #REPLACE
+  default = "ltschanges" #REPLACE
 }
 
 variable "db_username" {
   description = "RDS database user name"
-  default = <db_username> #REPLACE
+  default = "ltschanges" #REPLACE
 }
 
 #DO NOT fill in here. This will be asked at runtime
 variable "db_password" {}
 
 variable "public_key" {
-  default = <public_ssh_key>
+  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDbweDUT9NKTgvNRDKQfHVoEae6P7UnNEPTYI4UtZ1KjM1+nAZkWTEC3xMXGI00hluMKGwb80iJKHzSzCsedMeTSiluiKk7ctbzt8z5WvthT7p5wUqiuiOvveKpapy8sJiXzDoThjpfZKqQ6Rz2amLQJlzccF8CFfgNl4bMmCKAXKZQZhlI4aTlNqotOY1JB7j4X8g4mJO7BC92Nbm3+ZUnxi//mBcewzp/JvwbskTOcamd1w9u/E+xr/RyV14r7CCao1b/+Rf5BpXKnRh/exXHXVwmoQl9DrymmVdL+Y/rF40yXkfCcftEuJ/FcewR+VsdARl0LB8cXj+4ciII1sov"
   description = "ssh key"
 }
 

@@ -1,4 +1,29 @@
 #
+# Terraform & Provider Versions
+#
+
+terraform {
+  required_version = ">= 1.5.0"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.67"
+    }
+
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "~> 2.20"
+    }
+
+    http = {
+      source  = "hashicorp/http"
+      version = "~> 3.0"
+    }
+  }
+}
+
+#
 # Provider Configuration
 #
 
@@ -6,14 +31,9 @@ provider "aws" {
   region = "ap-south-1"
 }
 
-# Using these data sources allows the configuration to be
-# generic for any region.
-data "aws_region" "current" {}
+provider "http" {}
 
+# Generic region data sources
+data "aws_region" "current" {}
 data "aws_availability_zones" "available" {}
 
-# Not required: currently used in conjuction with using
-# icanhazip.com to determine local workstation external IP
-# to open EC2 Security Group access to the Kubernetes cluster.
-# See workstation-external-ip.tf for additional information.
-provider "http" {}
