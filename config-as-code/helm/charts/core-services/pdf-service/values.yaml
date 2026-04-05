@@ -49,16 +49,16 @@ env: |
       configMapKeyRef:
         name: egov-config
         key: db-name
-  - name: DB_USER
+  - name: DB_NAME
     valueFrom:
-      secretKeyRef:
-        name: db
-        key: username
-  - name: DB_PASSWORD
+      configMapKeyRef:
+        key: db-name
+        name: egov-config
+  - name: DB_PORT
     valueFrom:
-      secretKeyRef:
-        name: db
-        key: password
+      configMapKeyRef:
+        key: db-port
+        name: egov-config      
   - name: KAFKA_BROKER_HOST
     valueFrom:
       configMapKeyRef:
@@ -68,9 +68,7 @@ env: |
     valueFrom:
       configMapKeyRef:
         name: egov-config
-        key: egov-services-fqdn-name      
-  - name: DB_PORT
-    value: "5432"  
+        key: egov-services-fqdn-name        
   - name: SERVER_PORT
     value: "8080"
   - name: MAX_NUMBER_PAGES

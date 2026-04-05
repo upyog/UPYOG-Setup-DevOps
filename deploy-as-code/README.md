@@ -25,7 +25,7 @@ Parameter | Description | Default
 `appType` | Application Type to configure defaults for appType, "java-spring" only type with defaults for now. For more details check [values.yaml](https://github.com/egovernments/DIGIT-DevOps/blob/master/deploy-as-code/helm/charts/common/values.yaml) | ` `
 `labels` | Labels for the service, for example, <br/>`app: "egov-mdms-service"`<br/>`group: "core"` | `''`
 `ingress.enabled` | To add ingress controller for the service  | `false`
-`ingress.zuul` | When ingress is enabled, routes the request via Zuul API gateway | `false` 
+`ingress.gateway` | When ingress is enabled, routes the request via Zuul API gateway | `false` 
 `ingress.context` | When ingress is enabled, exposes the following context path to the internet, example `user` | `` 
 `ingress.waf.enabled` | When ingress is enabled, Enable Web Application Firewall for the service | `true`
 `image.pullPolicy` |  To pull a Docker image from Docker repository, By default skip pulling an image if it already exists | `IfNotPresent`

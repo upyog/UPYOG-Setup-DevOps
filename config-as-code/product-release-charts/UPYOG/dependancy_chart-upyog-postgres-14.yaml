@@ -75,7 +75,7 @@ modules:
         - upyogio/citizen:v1.10.0-beta-3f2fe9abc7-10
         - upyogio/employee:v1.10.0-beta-3f2fe9abc7-17
         - upyogio/digit-ui:v1.7.0-beta.2-cf0dafd7b8-405
-        - upyogio/zuul-kubernetes-discovery:vNA-452b00d9de-4
+        - upyogio/gateway-kubernetes-discovery:vNA-452b00d9de-4
     - name: m_property-tax    #PT
       dependencies:
         - "core"
@@ -84,7 +84,7 @@ modules:
         - upyogio/property-services:v1.2.2-ee21fcd52a-92
         - upyogio/pt-calculator-v2:migration-issue-491e2d8a74-38
         - upyogio/pt-services-v2:migration-issue-6becd136fd-14
-        - upyogio/zuul:v1.3.2-3f038e780d-16
+        - upyogio/gateway:v1.3.2-3f038e780d-16
     - name: m_trade-license    #TL
       dependencies:
           - "core"
@@ -92,4 +92,4 @@ modules:
       services:
         - upyogio/tl-calculator:migration-issue-c6eba265a4-15
         - upyogio/tl-services:v1.1.9-462c24adb1-42   
-        - upyogio/zuul:v1.3.2-3f038e780d-16
+        - upyogio/gateway:v1.3.2-3f038e780d-16

@@ -74,6 +74,11 @@ env: |
       configMapKeyRef:
         name: egov-service-host
         key: egov-localization
+  - name: MDMS_V2_HOST
+    valueFrom:
+      configMapKeyRef:
+        key: mdms-v2
+        name: egov-service-host      
   - name: EGOV_URL_SHORTNER_HOST
     valueFrom:
       configMapKeyRef:
