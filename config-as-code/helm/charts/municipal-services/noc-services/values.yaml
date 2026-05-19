@@ -58,6 +58,11 @@ env: |
       configMapKeyRef:
         name: egov-service-host
         key: egov-workflow-v2 
+  - name: EGOV_BPA_HOST
+    valueFrom:
+      configMapKeyRef:
+        key: bpa-services
+        name: egov-service-host      
   - name: WORKFLOW_TRANSITION_PATH
     value: "egov-workflow-v2/egov-wf/process/_transition"
   - name: SPRING_KAFKA_CONSUMER_GROUP_ID

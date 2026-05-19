@@ -1,26 +1,26 @@
 # Replace with the name which you want to give to your EKS cluster
 # Cluster name can have only lowercase alphanumeric characters and hyphens
 # For example: "upyog-demo"
-cluster_name: "demo"
+cluster_name: "lts-changes"
 
 # Replace with ssh key name you want
-ssh_key_name: "demo-ssh-key" 
+ssh_key_name: "lts-chages-ssh-key" 
 
 # Replace with public key which you want to add in your EC2 machines # ssh key which you want to add in your EC2 machines
-public_ssh_key: "ssh-rsa zxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxyzxy"
+public_ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDbweDUT9NKTgvNRDKQfHVoEae6P7UnNEPTYI4UtZ1KjM1+nAZkWTEC3xMXGI00hluMKGwb80iJKHzSzCsedMeTSiluiKk7ctbzt8z5WvthT7p5wUqiuiOvveKpapy8sJiXzDoThjpfZKqQ6Rz2amLQJlzccF8CFfgNl4bMmCKAXKZQZhlI4aTlNqotOY1JB7j4X8g4mJO7BC92Nbm3+ZUnxi//mBcewzp/JvwbskTOcamd1w9u/E+xr/RyV14r7CCao1b/+Rf5BpXKnRh/exXHXVwmoQl9DrymmVdL+Y/rF40yXkfCcftEuJ/FcewR+VsdARl0LB8cXj+4ciII1sov"
 
 # Name you want to give to your Database
 # DB name must contain only alphanumeric characters
-db_name: "demo"
+db_name: "ltschanges"
 
 # Replace with DB username you want
 # DB user name must contain only alphanumeric characters
-db_username: "demo" 
+db_username: "ltschanges" 
 
 # Replace with Domain name you want for your web applications
-domain_name: "demo.upyog.org"
+domain_name: "demolts.ddns.net"
 
 # Replace with the name you want to give to your S3 bucket which is used to store the terraform state
-terraform_state_bucket_name: "upyog-terraform"
+terraform_state_bucket_name: "demolts-terraform"
 
 

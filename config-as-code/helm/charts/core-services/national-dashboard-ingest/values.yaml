@@ -43,6 +43,10 @@ env: |
       configMapKeyRef:
         name: egov-config
         key: es-indexer-host
+  - name: EGOV_ES_USERNAME
+    value: elastic
+  - name: EGOV_ES_PASSWORD
+    value: Upyog@9865#prod
   - name: MODULE_INDEX_MAPPING
     value:  {{ index .Values "module-index-mapping" | quote }}
   - name: MASTER_DATA_INDEX
@@ -51,6 +55,8 @@ env: |
     value:  {{ index .Values "module-fields-mapping" | quote }}
   - name: MASTER_MODULE_FIELDS_MAPPING
     value:  {{ index .Values "master-module-fields-mapping" | quote }}
+  - name: NATIONAL_DASHBOARD_USER
+    value:  {{ index .Values "national-dashboard-user" | quote }}  
   - name: MODULE_ALLOWED_GROUPBY_FIELDS_MAPPING
     value:  {{ index .Values "module-allowed-groupby-fields-mapping" | quote }}
   - name: SERVER_TOMCAT_MAX_THREADS

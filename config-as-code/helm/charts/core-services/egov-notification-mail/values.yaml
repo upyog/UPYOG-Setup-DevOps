@@ -24,15 +24,9 @@ env: |
   - name: KAFKA_TOPICS_NOTIFICATION_MAIL_GROUP
     value: egov.core.notification.email
   - name: MAIL_SENDER_USERNAME
-    valueFrom:
-      secretKeyRef:
-        name: egov-notification-mail
-        key: mailsenderusername                   
+    value:  support-upyog@niua.org
   - name: MAIL_SENDER_PASSWORD
-    valueFrom:
-      secretKeyRef:
-        name: egov-notification-mail
-        key: mailsenderpassword
+    value: SUpport@123
   {{- if index .Values "mail-port" }}
   - name: MAIL_PORT
     value: {{ index .Values "mail-port" | quote }}
@@ -49,6 +43,10 @@ env: |
       configMapKeyRef:
         name: egov-service-host
         key: egov-localization
+  - name: MAIL_PROTOCOL
+    value: smtp
+  - name: MAIL_PORT
+    value: "587"      
   - name: EGOV_USER_HOST
     valueFrom:
       configMapKeyRef:

@@ -60,7 +60,32 @@ env: |
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: egov-workflow-v2   
+        key: egov-workflow-v2
+  - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: db
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: db
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: db-port
+              name: egov-config
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              key: db-name
+              name: egov-config
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: db-port
+              name: egov-config
   - name: CONTEXT_PATH
     value: "/egov-pdf"  
   - name: EGOV_HOST

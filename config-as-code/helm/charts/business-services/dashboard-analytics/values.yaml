@@ -60,6 +60,10 @@ env: |
     value: "transaction"
   - name: ES_DOCUMENT_TYPE
     value: "transaction"
+  - name: EGOV_ES_USERNAME
+    value: elastic
+  - name: EGOV_ES_PASSWORD
+    value: {{ index .Values "es-password" | quote }}
   - name: TOP_PERFORMANCE_RECORD_COUNT
     value: "5"
   - name: EGOV_SERVICES_ESINDEXER_HOST_SEARCH

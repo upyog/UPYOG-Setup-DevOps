@@ -1,0 +1,127 @@
+version: v4.1
+modules:
+    - name: backbone
+      services:
+        - kafka-kraft
+        - elasticsearch-master
+        - elasticsearch-data
+        - kibana      
+    - name: authn-authz
+      services:
+        - redis
+        - ingress-nginx
+        - cert-manager
+    - name: core
+      dependencies:
+        - "backbone"
+        - "authn-authz"    
+      services:
+        - docker.io/upyogio/egov-accesscontrol:v2.9.0-cd5c7b722f-23
+        - docker.io/upyogio/egov-common-masters:v0.0.1-02737c2864-5
+        - docker.io/upyogio/egov-data-uploader:v2.9.0-092740c736-6
+        - docker.io/upyogio/egov-document-uploader:v2.9.0-5e363a9c33-13
+        - docker.io/upyogio/egov-enc-service:v2.9.0-80397ab779-20
+        - docker.io/upyogio/egov-filestore:v2.9.0-97f2c15010-26
+        - docker.io/upyogio/egov-idgen:v2.9.0-7f1e499940-19
+        - docker.io/upyogio/egov-indexer:v2.9.0-4fc69b6d72-33
+        - docker.io/upyogio/egov-localization:v2.9.0-1ff0e4266d-22
+        - docker.io/upyogio/egov-location:v2.9.0-f4ee771fac-32
+        - docker.io/upyogio/egov-mdms-service:v2.9.0-10f3369ad4-18
+        - docker.io/upyogio/egov-notification-mail:v2.9.0-790d1f5d82-22
+        - docker.io/upyogio/egov-notification-sms:v2.9.0-e7751385a4-43
+        - docker.io/upyogio/egov-otp:v2.9.0-58afa82f7d-12
+        - docker.io/upyogio/egov-persister:v2.9.0-cf856cc83f-31
+        - docker.io/upyogio/egov-pg-service:v2.9.0-4ef01aa7a8-80
+        - docker.io/upyogio/egov-searcher:v2.9.0-6c4b39a59d-18
+        - docker.io/upyogio/egov-survey-services:v0.0.1-24a05a4e1e-15
+        - docker.io/upyogio/egov-url-shortening:v2.9.0-99945183af-13
+        - docker.io/upyogio/egov-user:master-dx-347b2fef84-208
+        - docker.io/upyogio/egov-workflow-v2:v2.9.0-f67ca9778d-58
+        - docker.io/upyogio/gateway:v1.0.1-c2e92aad4a-36
+        - docker.io/upyogio/mdms-v2:v2.9.0-597a6c013c-13
+        - docker.io/upyogio/national-dashboard-ingest:v2.9.0-2fc0cfeb83-122
+        - docker.io/upyogio/national-dashboard-kafka-pipeline:v2.9.0-c7fbe15e6f-17
+        - docker.io/upyogio/pdf-service:v1.2.1-1a8ff8343b-63
+        - docker.io/upyogio/report:v2.9.0-a913ea365e-27
+        - docker.io/upyogio/service-request:v2.9.0-ab3ddd5732-55
+        - docker.io/upyogio/user-otp:v2.9.0-5c3a3983bb-10
+        - docker.io/upyogio/xstate-chatbot:v1.1.1-271259e847-2      
+    - name: business
+      dependencies:
+        - "core"
+      services:
+        - docker.io/upyogio/billing-service:v2.0.0-ef191f2195-39
+        - docker.io/upyogio/collection-services:v1.1.7-9d10ca467d-23
+        - docker.io/upyogio/dashboard-analytics:v2.9.0-46e9c4d3de-68
+        - docker.io/upyogio/dashboard-ingest:v2.0.0-293dbdb25e-41
+        - docker.io/upyogio/egf-instrument:v1.1.4-e0ff42610f-10
+        - docker.io/upyogio/egf-master:v2.0.0-d7fb983287-18
+        - docker.io/upyogio/egov-apportion-service:v2.0.0-a485b5aa24-14
+        - docker.io/upyogio/egov-hrms:v2.0.0-84a7fcac6a-25
+        - docker.io/upyogio/employee-dashboard:v1.0.0-159fd2e474-15
+        - docker.io/upyogio/finance-collections-voucher-consumer:Dev-5.0-432efea4e9-19
+        - docker.io/upyogio/verification-service:v1.0.0-be0525d90f-16      
+    - name: utilities
+      dependencies:
+        - "core"
+      services:
+        - upyogio/egov-custom-consumer:v1.1.1-72f8a8f87b-3
+        - upyogio/egov-pdf:v1.2.0-2fa4dd1333-35
+    - name: "frontend"             
+      dependencies:
+        - "business"
+      services:
+        - docker.io/upyogio/cnd-ui:v1.0.0-b28afaa26a-4
+        - docker.io/upyogio/sv-ui:v1.0.0-39c3f51f0f-8
+        - docker.io/upyogio/tqm-ui:v1.5.0-ca259c649d-1
+        - docker.io/upyogio/upyog-ui:v1.7.0-beta.2-6df7970250-156
+        - docker.io/upyogio/workbench-ui:v1.8.0-323ff2da8b-53
+        - upyogio/employee:v1.10.0-beta-d8dc069a0a-55
+        - upyogio/citizen:v1.10.0-beta-d8dc069a0a-27  
+    - name: municipal
+      dependencies:
+        - "core"
+        - "business"
+      services:
+        - docker.io/upyogio/adv-services:v2.0.0-3efdb29bdc-22
+        - docker.io/upyogio/asset-calculator:v2.0.0-2ae10f4d1d-21
+        - docker.io/upyogio/asset-services:v2.0.0-aef3c2d2f7-17
+        - docker.io/upyogio/birth-death-services:v1.0.2-b09d231d64-19
+        - docker.io/upyogio/bpa-calculator:v2.9.0-eacb563a96-51
+        - docker.io/upyogio/bpa-services:v2.9.0-1a44c948c6-100
+        - docker.io/upyogio/cnd-calculator:v2.0.0-ba38b0c4b0-16
+        - docker.io/upyogio/cnd-service:v2.0.0-aaf0be7b44-44
+        - docker.io/upyogio/chb-services:v2.0.0-eea9dd722d-18
+        - docker.io/upyogio/echallan-calculator:v2.9.0-42d9ad9906-17
+        - docker.io/upyogio/echallan-services:v2.9.0-80397ab779-29
+        - docker.io/upyogio/egov-user-event:v2.9.0-08bf63b572-25
+        - docker.io/upyogio/ewaste-services:v2.0.0-ad29a0862f-14
+        - docker.io/upyogio/firenoc-calculator:v1.2.3-9591a78099-35
+        - docker.io/upyogio/firenoc-services:v1.3.3-aab7986d81-59
+        - docker.io/upyogio/fsm-calculator:v2.9.0-6db749179d-27
+        - docker.io/upyogio/fsm:v2.9.0-ed9bbbb2f0-59
+        - docker.io/upyogio/inbox:v2.9.0-2aa18eb500-48
+        - docker.io/upyogio/land-services:v2.9.0-df62c922fa-27
+        - docker.io/upyogio/noc-services:v2.9.0-66318635aa-21
+        - docker.io/upyogio/pet-services:v2.0.0-67f250a9d9-52
+        - docker.io/upyogio/pgr-ai-services:v2.0.0-2fa61390af-10
+        - docker.io/upyogio/pgr-services:v2.9.0-783a0fb5de-47
+        - docker.io/upyogio/pqm-anomaly-finder:v1.0.0-b397266329-4
+        - docker.io/upyogio/pqm-scheduler:latest
+        - docker.io/upyogio/pqm-service:v1.0.0-4bede13623-8
+        - docker.io/upyogio/property-services:master-LTS-d636951318-116
+        - docker.io/upyogio/pt-calculator-v2:v2.9.0-2fa61390af-48
+        - docker.io/upyogio/pt-services-v2:v1.0.0-2fa61390af-26
+        - docker.io/upyogio/rainmaker-pgr:v1.1.4_beta-2fa61390af-17
+        - docker.io/upyogio/request-service:v2.0.0-2fa61390af-19
+        - docker.io/upyogio/sw-calculator:v1.4.4-2fa61390af-54
+        - docker.io/upyogio/sw-services:v1.7.5-2fa61390af-54
+        - docker.io/upyogio/tl-calculator:v2.9.0-2fa61390af-23
+        - docker.io/upyogio/tl-services:v2.9.0-e701590e56-58
+        - docker.io/upyogio/tp-services:v2.0.0-159fd2e474-23
+        - docker.io/upyogio/turn-io-adapter:v1.0.1-2fa61390af-11
+        - docker.io/upyogio/vehicle:v2.0.0-ba38b0c4b0-37
+        - docker.io/upyogio/vendor:v2.9.0-527e191d2c-51
+        - docker.io/upyogio/ws-calculator:v2.9.0-2fa61390af-96
+        - docker.io/upyogio/ws-services:v2.9.0-2fa61390af-80
+        - upyogio/sv-services:v2.0.0-2fa61390af-19      

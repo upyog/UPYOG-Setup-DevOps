@@ -1,4 +1,4 @@
-namespace : sanitation
+namespace : egov
 # Common Labels
 labels:
   app: "inbox"
@@ -22,6 +22,7 @@ appType: "java-spring"
 tracing-enabled: true
 heap: "-Xmx384m -Xms256m"
 java-args: "-Dspring.profiles.active=monitoring"
+internal-microservice-user-req: false
 
 # Additional Container Envs
 env: |
@@ -54,3 +55,65 @@ env: |
   - name: TRACER_OPENTRACING_ENABLED
     value: "true" 
   {{- end }}
+  - name: EGOV_USER_HOST
+    valueFrom:
+      configMapKeyRef:
+        name: egov-service-host
+        key: egov-user
+  - name: EGOV_USER_SEARCH_PATH
+    value: "user/_search"
+  - name: EGOV_SEARCHER_HOST
+    valueFrom:
+      configMapKeyRef:
+        name: egov-service-host
+        key: egov-searcher
+  - name: EGOV_DASHBOARD_ANALYTICS_HOST
+    valueFrom:
+      configMapKeyRef:
+        name: egov-service-host
+        key: dashboard-analytics
+  - name: EGOV_MDMS_HOST
+    valueFrom:
+      configMapKeyRef:
+        name: egov-service-host
+        key: egov-mdms-service
+  {{- if index .Values "internal-microservice-user-req" }}      
+  - name: EGOV_INTERNAL_MICROSERVICE_USER_UUID
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: egov-internal-microservice-user-uuid
+  {{- end }}
+  - name: SERVICES_ESINDEXER_HOST
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: es-indexer-host
+  - name: SERVICES_ESINDEXER_USERNAME
+    value: elastic
+  - name: SERVICES_ESINDEXER_PASSWORD
+    value: Upyog@9865#prod   
+  - name: EGOV_STATE_LEVEL_TENANT_ID
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: egov-state-level-tenant-id
+  - name: STATE_LEVEL_TENANT_ID
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: egov-state-level-tenant-id
+  - name: PARENT_LEVEL_TENANT_ID
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: egov-state-level-tenant-id
+  - name: BS_BUSINESSCODE_SERVICE_SEARCH
+    value:  {{ index .Values "bs-service-map" | quote }} 
+  - name: WATER_ES_INDEX
+    value:  {{ index .Values "water-es-index" | quote }}
+  - name: SEWERAGE_ES_INDEX
+    value:  {{ index .Values "sewerage-es-index" | quote }}
+  
+  - name: JAVA_ENABLE_DEBUG
+    value: "true"
